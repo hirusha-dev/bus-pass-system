@@ -26,7 +26,7 @@ class BusPassController extends Controller
 
         $validator = Validator::make($request->all(), [
             'full_name' => 'required|string|max:255',
-            'nic' => 'required|string',
+            'nic' => 'required|string|unique:bus_passes,nic',
             'contact_number' => 'required|string',
             'email' => 'required|email|unique:bus_passes,email',
             'start_location' => 'required|string',

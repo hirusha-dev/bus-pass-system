@@ -1,7 +1,19 @@
 <nav class="navbar">
-    <div class="logo">
-        <a href="/">Bus Pass Management</a>
-    </div>
+    @auth
+        @if (Auth::user()->role === 'admin')
+            <div class="logo">
+                <a href="#">Bus Pass Management</a>
+            </div>
+        @else
+            <div class="logo">
+                <a href="/">Bus Pass Management</a>
+            </div>
+        @endif
+    @else
+        <div class="logo">
+            <a href="/">Bus Pass Management</a>
+        </div>
+    @endauth
     <ul class="nav-links">
 
         @auth
